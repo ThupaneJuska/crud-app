@@ -38,7 +38,7 @@
               </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="['name', 'dosage', 'quantity', 'stock', 'delete']"></tr>
+            <tr mat-header-row *matHeaderRowDef="['name', 'dosage', 'quantity', 'stock', 'delete']" class="header-cell"></tr>
             <tr mat-row *matRowDef="let row; columns: ['name', 'dosage', 'quantity', 'stock', 'delete'];"></tr>
           </table>
         </div>
