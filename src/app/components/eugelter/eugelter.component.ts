@@ -9,10 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class EugelterComponent implements OnInit {
   medications: any[] = [];  // Store medications
   names: any[] = [
-    { name: 'Mdau GS', router: '/mdau' },
     { name: 'Chauke ML ', router: '/chauke' },
     { name: 'Mahlangu KM ', router: '/mahlanku' },
-    { name: 'Ramokgotsoa MR', router: '/ramokgotsoa' }
   ];
 
   constructor(private http: HttpClient) {}
