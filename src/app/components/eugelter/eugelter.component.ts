@@ -1,42 +1,46 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';  // Import HttpClient for HTTP requests
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-eugelter',
   templateUrl: './eugelter.component.html',
   styleUrls: ['./eugelter.component.scss']
 })
-export class EugelterComponent {
-
-  items: string[] = ['joel', 'potoko', 'yess','potokonyana'];  // Array to store items
+export class EugelterComponent implements OnInit {
+  medications: any[] = [];  // Store medications
   names: any[] = [
-    {name: 'Mdau GS', router: '/mdau'}, 
-    {name: 'Chauke ML ', router: '/chauke'}, 
-    {name: 'Mahlangu KM ', router: '/mahlanku'}, 
-    {name: 'Ramokgotsoa MR', router: '/ramokgotsoa'}
-  ];  // Array for navigation links
+    { name: 'Mdau GS', router: '/mdau' },
+    { name: 'Chauke ML ', router: '/chauke' },
+    { name: 'Mahlangu KM ', router: '/mahlanku' },
+    { name: 'Ramokgotsoa MR', router: '/ramokgotsoa' }
+  ];
 
   constructor(private http: HttpClient) {}
 
-  // Method to add a new item
-  addItem(item: string) {
-    // if (item) {
-    //   // Call the backend to add the item
-    //   this.http.post<{message: string, item: any}>('http://localhost:3000/add-item', { name: item })
-    //     .subscribe(response => {
-    //       // On success, push the new item to the array to update the table
-    //       this.items.push(response.item.name);
-    //       console.log('Item added:', response.item);
-    //     }, error => {
-    //       console.error('Error adding item:', error);
-    //     });
-    // }
-    this.items.push(item);
-          console.log('Item added:',this.items);
+  ngOnInit() {
+    this.getMedications();  // Fetch medications when the component loads
   }
 
-  // Method to delete an item
-  deleteItem(item: string) {
-    this.items = this.items.filter(i => i !== item);
+  // Fetch all medications
+  getMedications() {
+    this.http.get<{ medications: any[] }>('http://localhost:3000/get-medications')
+      .subscribe(response => {
+        this.medications = response.medications;
+        console.log('Fetched medications:', this.medications);
+      }, error => {
+        console.error('Error fetching medications:', error);
+      });
+  }
+
+  // Add Medication
+  addMedication(medication: { name: string; dosage: string; quantity: number; stock_count: number; threshold: number; received_count: number }) {
+    this.http.post<{ message: string; medication: any }>('http://localhost:3000/add-medication', medication)
+      .subscribe(response => {
+        this.medications.push(response.medication);
+        console.log('Medication added:', response.medication);
+        this.getMedications();
+      }, error => {
+        console.error('Error adding medication:', error);
+      });
   }
 }
