@@ -1,0 +1,33 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .sidenav-container {
+    height: 100vh;
+  }
+  
+  .sidenav {
+    width: 250px;
+  }
+  
+  .mat-nav-list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .menu-icon {
+    margin-right: 16px;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .content {
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .mat-list-item.active {
+    background: #e0e0e0;
+  }

@@ -10,7 +10,9 @@ import { MdauComponent } from './components/mdau/mdau.component';
 import { ChaukeComponent } from './components/chauke/chauke.component';
 import { MahlankuComponent } from './components/mahlanku/mahlanku.component';
 import { RamokgotsoaComponent } from './components/ramokgotsoa/ramokgotsoa.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { LandingComponent } from './components/landing/landing.component';
+import { ReportsComponent } from './components/reports/reports.component'; 
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     MdauComponent,
     ChaukeComponent,
     MahlankuComponent,
-    RamokgotsoaComponent
+    RamokgotsoaComponent,
+    LandingComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
