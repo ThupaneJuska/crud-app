@@ -21,7 +21,7 @@ export class EugelterComponent implements OnInit {
 
   // Fetch all medications
   getMedications() {
-    this.http.get<{ medications: any[] }>('http://localhost:3000/get-medications')
+    this.http.get<{ medications: any[] }>('http://localhost:3000/api/medications/get-medications')
       .subscribe(response => {
         this.medications = response.medications;
         console.log('Fetched medications:', this.medications);
@@ -32,7 +32,7 @@ export class EugelterComponent implements OnInit {
 
   // Add Medication
   addMedication(medication: { name: string; dosage: string; quantity: number; stock_count: number; threshold: number; received_count: number }) {
-    this.http.post<{ message: string; medication: any }>('http://localhost:3000/add-medication', medication)
+    this.http.post<{ message: string; medication: any }>('http://localhost:3000/api/medications/add-medication', medication)
       .subscribe(response => {
         this.medications.push(response.medication);
         console.log('Medication added:', response.medication);
