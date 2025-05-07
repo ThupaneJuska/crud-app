@@ -7,6 +7,9 @@ import { MahlankuComponent } from './components/mahlanku/mahlanku.component';
 import { RamokgotsoaComponent } from './components/ramokgotsoa/ramokgotsoa.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ReportsComponent } from './components/reports/reports.component';
+import { PrescriptionsComponent } from './components/prescriptions/prescriptions.component';
+import { StaffComponent } from './components/staff/staff.component';
+import { PatientsComponent } from './components/patients/patients.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
@@ -15,8 +18,10 @@ const routes: Routes = [
     { path: 'mdau', component: MdauComponent },
     { path: 'ramokgotsoa', component: RamokgotsoaComponent },
     { path: 'chauke', component: ChaukeComponent },
-    { path: 'mahlanku', component: MahlankuComponent },
+    { path: 'staff', component: StaffComponent },
     { path: 'reports', component: ReportsComponent },
+    { path: 'prescriptions', component: PrescriptionsComponent },
+    { path: 'patients', component: PatientsComponent },
   ]},
 ];
 

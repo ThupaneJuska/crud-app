@@ -12,7 +12,12 @@ import { MahlankuComponent } from './components/mahlanku/mahlanku.component';
 import { RamokgotsoaComponent } from './components/ramokgotsoa/ramokgotsoa.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './components/landing/landing.component';
-import { ReportsComponent } from './components/reports/reports.component'; 
+import { ReportsComponent } from './components/reports/reports.component';
+import { PrescriptionsComponent } from './components/prescriptions/prescriptions.component';
+import { AddPrescriptionComponent } from './dialog/add-prescription/add-prescription.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { StaffComponent } from './components/staff/staff.component';
+import { PatientsComponent } from './components/patients/patients.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,11 @@ import { ReportsComponent } from './components/reports/reports.component';
     MahlankuComponent,
     RamokgotsoaComponent,
     LandingComponent,
-    ReportsComponent
+    ReportsComponent,
+    PrescriptionsComponent,
+    AddPrescriptionComponent,
+    StaffComponent,
+    PatientsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +41,7 @@ import { ReportsComponent } from './components/reports/reports.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
